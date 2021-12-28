@@ -1,12 +1,28 @@
 import React from 'react';
+import {Provider} from 'react-redux'
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
+import store from './redux/store'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Cookies from 'js-cookie'
+import {BrowserRouter, HashRouter} from 'react-router-dom'
+import { Cookie } from 'express-session';
+const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRouter;
+//Cookie generation
+if(!Cookies.get('cookie')){
+  Cookies.set('cookie', [], { expires: 7 })
+  console.log('GENERATING NEW COOKIE VALUE', Cookies.get('cookie'))
+}
+// Cookies.remove('cookie')
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

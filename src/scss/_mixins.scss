@@ -1,0 +1,40 @@
+//Arguments( column/ row)
+@mixin flexCenter($direction) {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin flexSpaceBetween($direction) {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin flexSpaceEvenly($direction) {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@function weight($weight-name){
+    @return map-get($font-weight, $weight-name);
+}
+
+//Arguments ($light-theme: true/ $light-theme: false)
+@mixin themeToggle($light-theme: true){
+    @if $light-theme {
+        background: lighten($primary-color, 100%);
+        color: darken($text-color, 100%);
+    }
+}
+
+//Mobile view
+@mixin mobile{
+    @media (max-width: $mobile){
+        @content;
+    }
+}

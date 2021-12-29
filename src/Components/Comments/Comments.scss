@@ -1,0 +1,50 @@
+@import '../../scss/reset';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.writeComment{
+    @include flexCenter(row);
+
+    .comment-button{
+        margin-left: 20px;
+    }
+
+}
+
+.allComments {
+    @include flexCenter(column);
+}
+
+.comment-input{
+    width: 900px;
+    background: rgba(255, 255, 255, 0.733);
+}
+.comment-container{
+    display:flex;
+    align-items: center;
+    width: 80vw;
+    height: 60px;
+    background: grey;
+    margin: 10px;
+    box-shadow: 1px 1px 4px rgb(0, 0, 0);
+
+    .pic-username-container{
+        @include flexCenter(row);
+    
+        .comment-pic{
+            width: 48px;
+            margin: 0 10px 0 30px; 
+            box-shadow: 1px 1px 6px rgb(0, 0, 0);  
+        }
+
+        .comment-username{
+            margin-right:4px;
+        }
+    }
+
+    .commentText{
+        margin-left: 10px;
+        overflow: auto;
+        overflow-wrap: break-word;
+    }
+}
